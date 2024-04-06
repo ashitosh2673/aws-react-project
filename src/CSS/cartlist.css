@@ -1,0 +1,30 @@
+.cart-container {
+  max-width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  border: 1px solid gray;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.cart-item-image {
+  width: 100px;
+  height: 100px;
+  margin-right: 20px;
+}
+
+.cart-remove-item-button {
+  background-color: #febd69;
+  padding: 6px;
+  border-radius: 6px;
+}
+
+.item-details {
+  flex: 1;
+}

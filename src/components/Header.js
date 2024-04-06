@@ -1,12 +1,18 @@
 import React from "react";
 import logo from "./../assets/images/amazon-logo.png";
 import "./../CSS/header.css";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const Header = () => {
+  const { cart } = useSelector((state) => state.amazon);
+
+  const cartQuantity = cart?.reduce((acc, item) => acc + item.quantity, 0);
   return (
     <div className="header">
-      <img src={logo} alt="Amazon Logo" className="header-logo" />
-
+      <Link to="/">
+        <img src={logo} alt="Amazon Logo" className="header-logo" />
+      </Link>
       <div className="header-search">
         <input type="text" className="header-search-input" />
         <button className="header-search-btn">Search</button>
@@ -24,8 +30,12 @@ const Header = () => {
       </div>
 
       <div className="header-option-basket">
-        <i class="fa-regular fa-cart-shopping"></i>
-        <span className="header-option-line-two header-basket-count">0</span>
+        <Link to="/cart">
+          <span class="material-symbols-outlined">shopping_cart</span>
+          <span className="header-option-line-two header-basket-count">
+            {cartQuantity}
+          </span>
+        </Link>
       </div>
     </div>
   );
